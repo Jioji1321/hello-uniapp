@@ -1337,7 +1337,16 @@
 						"navigationBarTitleText": "测试页面"
 					}
 				}
-			]
+                ,{
+                    "path" : "test-page/test-page-sub",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "测试页面-子页面",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 		}
 	],
 	"globalStyle": {
