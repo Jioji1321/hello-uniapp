@@ -122,6 +122,10 @@
 						name: 'GlobalData和vuex',
 						url: 'global'
 					},
+					{
+						name: '测试页面',
+						url: 'test-page'
+					},
 					// #ifdef APP-PLUS
 					{
 						name: '问题反馈',

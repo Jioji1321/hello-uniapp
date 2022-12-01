@@ -206,7 +206,8 @@
 					"softinputMode": "adjustResize"
 				}
 				// #ifdef MP-BAIDU
-				,"usingComponents": {
+				,
+				"usingComponents": {
 					"editor": "dynamicLib://editorLib/editor"
 				}
 				// #endif
@@ -337,22 +338,28 @@
 			}
 		}
 		// #endif
-	,{
-    "path": "uni_modules/uni-upgrade-center-app/pages/upgrade-popup",
-    "style": {
-        "app-plus": {
-            "animationDuration": 200,
-            "animationType": "fade-in",
-            "background": "transparent",
-            "backgroundColorTop": "transparent",
-            "popGesture": "none",
-            "scrollIndicator": false,
-            "titleNView": false
-        },
-        "disableScroll": true
-    }
-}
-],
+		, {
+			"path": "uni_modules/uni-upgrade-center-app/pages/upgrade-popup",
+			"style": {
+				"app-plus": {
+					"animationDuration": 200,
+					"animationType": "fade-in",
+					"background": "transparent",
+					"backgroundColorTop": "transparent",
+					"popGesture": "none",
+					"scrollIndicator": false,
+					"titleNView": false
+				},
+				"disableScroll": true
+			}
+		}
+		, {
+			"path": "pages/template/test-page/test-page",
+			"style": {
+				"navigationBarTitleText": "测试"
+			}
+		}
+	],
 	"subPackages": [{
 			"root": "pages/API",
 			"pages": [{
@@ -1323,6 +1330,12 @@
 					"style": {
 						"navigationBarTitleText": "GlobalData和vuex"
 					}
+				},
+				{
+					"path": "test-page/test-page",
+					"style": {
+						"navigationBarTitleText": "测试页面"
+					}
 				}
 			]
 		}
@@ -1372,6 +1385,12 @@
 				"selectedIconPath": "static/templateHL.png",
 				"text": "模板"
 			}
+			// , {
+			// 	"pagePath": "pages/template/test-page/test-page",
+			// 	"iconPath": "static/template.png",
+			// 	"selectedIconPath": "static/templateHL.png",
+			// 	"text": "模板"
+			// }
 		]
 	}
 }

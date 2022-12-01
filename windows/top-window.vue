@@ -35,7 +35,7 @@
 					component: 0,
 					API: 1,
 					extUI: 2,
-					template: 3
+					template: 3,
 				},
 				current: 0,
 				indexPage: [{
