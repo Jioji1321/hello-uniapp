@@ -41,7 +41,7 @@
 						<text>当前选择时间为:</text>
 					</view>
 					<view class="uni-list-cell-db">
-						<picker mode="time" :value="time" start="00:00" end="23:59" @change="changeTime">
+						<picker mode="time" :value="time" start="00:00" end="23:59" @change="changeTime" require>
 							<view class="uni-input">{{this.time}}</view>
 						</picker>
 					</view>
@@ -55,13 +55,23 @@
 </template>
 
 <script>
+	import {
+		mapState,
+		mapMutations
+	} from 'vuex'
 	export default {
+		computed: {
+			...mapState(['checkBoxStatus', 'country', 'time', 'inputText'])
+		},
+		methods: {
+			...mapMutations(['setCheckBoxStatus', 'setCountry', 'setTime', 'setInputText'])
+		},
 		data() {
 			return {
-				checkBoxStatus: false,
-				country: null,
-				time: null,
-				inputText: null,
+				// checkBoxStatus: false,
+				// country: null,
+				// time: null,
+				// inputText: null,
 				redioItem: [{
 						name: "USA",
 						value: "美国"
@@ -75,12 +85,14 @@
 		},
 		methods: {
 			clickMe(e) {
-				console.log(e);
+				// console.log('clickMe', e);
 				console.log('123');
 			},
 			inputChange(e) {
-				console.log(e);
-				this.inputText = e.detail.value;
+				// console.log('inputChange', e);
+				this.$store.commit('setInputText', e.detail.value);
+				// this.setInputText(e.detail.value);
+				// console.log(this.inputText)
 			},
 			submit() {
 
@@ -89,22 +101,28 @@
 
 			},
 			checkBoxChange(e) {
-				console.log(e);
-				this.checkBoxStatus = e.detail.value;
+				// console.log('checkBoxChange', e);
+				// this.checkBoxStatus = e.detail.value;
+				this.$store.commit('setCheckBoxStatus', e.detail.value);
 			},
 			radioGroupChange(e) {
-				console.log(e);
-				this.country = e.detail.value;
+				// console.log('radioGroupChange', e);
+				// this.country = e.detail.value;
+				this.$store.commit('setCountry', e.detail.value);
 			},
 			changeTime(e) {
-				console.log(e);
-				this.time = e.detail.value;
+				// console.log('changeTime', e);
+				// this.time = e.detail.value;
+				this.$store.commit('setTime', e.detail.value);
 			},
 			navigateToPage(e) {
-				console.log(e);
+				console.log('navigateToPage', e);
+				let paramUrl = '?checkBoxStatus=' + this.checkBoxStatus + '&country=' + this.country + '&time=' + this.time + '&inputText=' + this.inputText;
 				uni.navigateTo({
 					//main->sub,传输的数据拼装在url后
-					url: './test-page-sub?name=xiaowang&age=20&location=SH',
+					// url: './test-page-sub?name=xiaowang&age=20&location=SH',
+					// url: './test-page-sub'+paramUrl,
+					url: './test-page-sub',
 					events: {
 						acceptData: function(data) {
 							console.log(data);

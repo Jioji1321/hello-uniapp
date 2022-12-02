@@ -22,7 +22,20 @@ const store = createStore({
 		leftWinActive: '/pages/component/view/view',
 		activeOpen: '',
 		menu: [],
-		univerifyErrorMsg: ''
+		univerifyErrorMsg: '',
+
+		// === test code start
+		checkBoxStatus: false,
+		country: null,
+		time: null,
+		inputText: null,
+		testObj: {
+			checkBoxStatus: false,
+			country: null,
+			time: null,
+			inputText: null,
+		}
+		// test code end ===
 	},
 	mutations: {
 		login(state, provider) {
@@ -66,12 +79,48 @@ const store = createStore({
 		},
 		setUniverifyErrorMsg(state,payload = ''){
 			state.univerifyErrorMsg = payload
+		},
+
+		//===test code start
+		setCheckBoxStatus(state,checkBoxStatus){
+			state.checkBoxStatus = checkBoxStatus;
+		},
+		setCountry(state,country){
+			state.country = country;
+		},
+		setTime(state,time){
+			state.time = time;
+		},
+		setInputText(state,inputText){
+			state.inputText = inputText;
+		},
+		setTestObj(state,testObj){
+			state.testObj = testObj;
 		}
+		// test code end ===
 	},
 	getters: {
 		currentColor(state) {
 			return state.colorList[state.colorIndex]
+		},
+
+		//===test code start
+		checkBoxStatus(state){
+			return state.checkBoxStatus;
+		},
+		country(state){
+			return state.country;
+		},
+		time(state){
+			return state.time;
+		},
+		inputText(state){
+			return state.inputText;
+		},
+		testObj(state){
+			return state.testObj;
 		}
+		// test code end ===
 	},
 	actions: {
 		// lazy loading openid
